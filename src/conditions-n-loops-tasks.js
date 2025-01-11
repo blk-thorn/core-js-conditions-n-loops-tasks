@@ -125,8 +125,64 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let newStr = '';
+  let i = 0;
+  if (numberStr[i] === '-') {
+    newStr += 'minus ';
+    i += 1;
+  }
+  while (i < numberStr.length) {
+    switch (numberStr[i]) {
+      case '.':
+        newStr += 'point ';
+        break;
+      case ',':
+        newStr += 'point ';
+        break;
+      case '0':
+        newStr += 'zero ';
+        break;
+      case '1':
+        newStr += 'one ';
+        break;
+      case '2':
+        newStr += 'two ';
+        break;
+      case '3':
+        newStr += 'three ';
+        break;
+      case '4':
+        newStr += 'four ';
+        break;
+      case '5':
+        newStr += 'five ';
+        break;
+      case '6':
+        newStr += 'six ';
+        break;
+      case '7':
+        newStr += 'seven ';
+        break;
+      case '8':
+        newStr += 'eight ';
+        break;
+      case '9':
+        newStr += 'nine ';
+        break;
+      default:
+        throw new Error('Invalid character');
+    }
+    i += 1;
+  }
+  if (newStr.length > 0) {
+    let finalStr = '';
+    for (let j = 0; j < newStr.length - 1; j += 1) {
+      finalStr += newStr[j];
+    }
+    return finalStr;
+  }
+  return newStr;
 }
 
 /**
@@ -192,8 +248,16 @@ function getIndexOf(str, letter) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  const string = '';
+  const stringNum = string + num;
+  const stringDigit = string + digit;
+  for (let i = 0; i < stringNum.length; i += 1) {
+    if (stringNum[i] === stringDigit) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
